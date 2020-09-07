@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: middle_mask_left_01
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/wrist
+    m_Weight: 0
+  - m_Path: Armature/wrist/index_001
+    m_Weight: 0
+  - m_Path: Armature/wrist/index_001/index_002
+    m_Weight: 0
+  - m_Path: Armature/wrist/index_001/index_002/index_003
+    m_Weight: 0
+  - m_Path: Armature/wrist/index_001/index_002/index_003/index_004
+    m_Weight: 0
+  - m_Path: Armature/wrist/index_001/index_002/index_003/index_004/index_004_end
+    m_Weight: 0
+  - m_Path: Armature/wrist/middle_001
+    m_Weight: 1
+  - m_Path: Armature/wrist/middle_001/middle_002
+    m_Weight: 1
+  - m_Path: Armature/wrist/middle_001/middle_002/middle_003
+    m_Weight: 1
+  - m_Path: Armature/wrist/middle_001/middle_002/middle_003/middle_004
+    m_Weight: 1
+  - m_Path: Armature/wrist/middle_001/middle_002/middle_003/middle_004/middle_004_end
+    m_Weight: 1
+  - m_Path: Armature/wrist/pinky_001
+    m_Weight: 0
+  - m_Path: Armature/wrist/pinky_001/pinky_002
+    m_Weight: 0
+  - m_Path: Armature/wrist/pinky_001/pinky_002/pinky_003
+    m_Weight: 0
+  - m_Path: Armature/wrist/pinky_001/pinky_002/pinky_003/pinky_004
+    m_Weight: 0
+  - m_Path: Armature/wrist/pinky_001/pinky_002/pinky_003/pinky_004/pinky_004_end
+    m_Weight: 0
+  - m_Path: Armature/wrist/ring_001
+    m_Weight: 0
+  - m_Path: Armature/wrist/ring_001/ring_002
+    m_Weight: 0
+  - m_Path: Armature/wrist/ring_001/ring_002/ring_003
+    m_Weight: 0
+  - m_Path: Armature/wrist/ring_001/ring_002/ring_003/ring_004
+    m_Weight: 0
+  - m_Path: Armature/wrist/ring_001/ring_002/ring_003/ring_004/ring_004_end
+    m_Weight: 0
+  - m_Path: Armature/wrist/thumb_001
+    m_Weight: 0
+  - m_Path: Armature/wrist/thumb_001/thumb_002
+    m_Weight: 0
+  - m_Path: Armature/wrist/thumb_001/thumb_002/thumb_003
+    m_Weight: 0
+  - m_Path: Armature/wrist/thumb_001/thumb_002/thumb_003/thumb_004
+    m_Weight: 0
+  - m_Path: Armature/wrist/thumb_001/thumb_002/thumb_003/thumb_004/thumb_004_end
+    m_Weight: 0
+  - m_Path: lowpoly_hand
+    m_Weight: 0
