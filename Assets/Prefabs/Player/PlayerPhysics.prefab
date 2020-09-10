@@ -73,7 +73,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25
+  m_Radius: 0.2
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -154,7 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 7236683832257392268}
-  strenght: 15
+  distance: 0
+  pFactor: 60
+  iFactor: 0.1
+  dFactor: 0
 --- !u!1001 &4868184168867104768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,11 +213,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2874033440725051020, guid: c75abb7340c996d41b119190f51fd199, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
+    - target: {fileID: 6753564046758102302, guid: c75abb7340c996d41b119190f51fd199, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 7817615563063523229}
+    - target: {fileID: 8632352189127703645, guid: c75abb7340c996d41b119190f51fd199, type: 3}
+      propertyPath: speed
+      value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6753564046758102302, guid: c75abb7340c996d41b119190f51fd199, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c75abb7340c996d41b119190f51fd199, type: 3}
 --- !u!4 &7236683833863433403 stripped
 Transform:

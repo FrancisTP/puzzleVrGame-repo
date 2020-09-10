@@ -7,6 +7,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class MovementProviderPhysics : LocomotionProvider {
 
+    // For physics and collisions
+    public Transform collisionTransform; //  object we want to follow
+    private Vector3 collisionTransformPositionOffset = Vector3.zero;
+    public float collisionDistance = 0.5f;
+    private Vector3PIDController pidController = null;
+
+    public float pFactor = 60;
+    public float iFactor = 0.1f;
+    public float dFactor = 0.0f;
+
     // INITIALIZED
     public float speed = 6.0f;
     public float gravityMultiplier = 1.0f;
@@ -25,61 +35,60 @@ public class MovementProviderPhysics : LocomotionProvider {
     public XRController otherController = null;
 
 
+
     protected override void Awake() {
         //characterController = GetComponent<CharacterController>();
 
         // Get component for direction, right now head
         head = GetComponent<XRRig>().cameraGameObject;
         thisRigidbody = GetComponent<Rigidbody>();
+
+        // physics
+        pidController = new Vector3PIDController(pFactor, iFactor, dFactor);
     }
 
     // Start is called before the first frame update
     void Start() {
-        PositionController();
+        
     }
 
     // Update is called once per frame
     void FixedUpdate() {
-        //PositionController();
-        CheckForInput();
-        //ApplyGravity();
+
+        Vector3 addedVelocity = CheckForCollision();
+
+        CheckForInput(addedVelocity);
     }
 
-    // Positions controller based on roomscale and physical user location, not user input
-    // Necessary to reposition the player based on his real life movement
-    private void PositionController() {
+    private Vector3 CheckForCollision() {
+        Vector3 collisionVector = Vector3.zero;
 
-        // Get the head in local, playspace ground
-        float headHeight = Mathf.Clamp(head.transform.localPosition.y, MovementHelper.MAX_PLAYER_HEIGHT, MovementHelper.MAX_PLAYER_HEIGHT); // Calmping height between 0.5 and 2 meters
-        //characterController.height = headHeight;
+        if (collisionTransform != null) {
+            float currentDist = Vector3.Distance((collisionTransform.position - collisionTransformPositionOffset), this.transform.position);
 
-        // Cut in half, add skin
-        Vector3 newCenter = Vector3.zero;
-        //newCenter.y = characterController.height / 2;
-        //newCenter.y += characterController.skinWidth;
+            if (currentDist > collisionDistance) {
+                Vector3 newVector = pidController.updatePID((collisionTransform.position - collisionTransformPositionOffset), this.transform.position, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
 
-        // Let's move the capsule in local space as well
-        newCenter.x = head.transform.localPosition.x;
-        newCenter.z = head.transform.localPosition.z;
+                collisionVector = newVector;
+            }
+        }
 
-
-        // Apply
-        //characterController.center = newCenter;
+        return collisionVector;
     }
 
-    private void CheckForInput() {
+    private void CheckForInput(Vector3 addedVelocity) {
         if (movementController.enableInputActions) {
-            CheckForMovement(movementController.inputDevice);
+            CheckForMovement(movementController.inputDevice, addedVelocity);
         }
     }
 
-    private void CheckForMovement(InputDevice device) {
+    private void CheckForMovement(InputDevice device, Vector3 addedVelocity) {
         if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 position)) {
-            StartMove(position);
+            StartMove(position, addedVelocity);
         }
     }
 
-    private void StartMove(Vector2 position) {
+    private void StartMove(Vector2 position, Vector3 addedVelocity) {
 
         // Apply the touch position to the head's forward Vector
         Vector3 direction = new Vector3(position.x, 0, position.y);
@@ -92,15 +101,9 @@ public class MovementProviderPhysics : LocomotionProvider {
         direction = Quaternion.Euler(rotationOffset) * direction;
 
         // Apply speed and move
-        Vector3 movement = direction.normalized * speed;
+        Vector3 movement = direction.normalized * speed * direction.magnitude;
         movement = new Vector3(movement.x, 0, movement.z);
-        thisRigidbody.velocity = movement;
-        //characterController.Move(movement * Time.deltaTime);
+        thisRigidbody.velocity = (movement + addedVelocity);
     }
 
-    private void ApplyGravity() {
-        Vector3 gravity = new Vector3(0, Physics.gravity.y * gravityMultiplier, 0);
-
-        //characterController.Move(gravity * Time.deltaTime);
-    }
 }

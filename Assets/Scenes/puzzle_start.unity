@@ -16317,6 +16317,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c668dbc7bee0644a895180ddba708ed, type: 3}
+--- !u!4 &1778742340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7817615563063523229, guid: 6656d380132c8fa4aa6421c8ba3e4956, type: 3}
+  m_PrefabInstance: {fileID: 4868184168389579690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1787663329
 Mesh:
   m_ObjectHideFlags: 0
@@ -45335,21 +45340,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8968303896447180367, guid: 6656d380132c8fa4aa6421c8ba3e4956, type: 3}
-      propertyPath: strenght
-      value: 15
+    - target: {fileID: 3765859352830063709, guid: 6656d380132c8fa4aa6421c8ba3e4956, type: 3}
+      propertyPath: collisionTransform
+      value: 
+      objectReference: {fileID: 1778742340}
+    - target: {fileID: 3765859352830063709, guid: 6656d380132c8fa4aa6421c8ba3e4956, type: 3}
+      propertyPath: collisionDistance
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8968303896447180367, guid: 6656d380132c8fa4aa6421c8ba3e4956, type: 3}
-      propertyPath: iFactor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968303896447180367, guid: 6656d380132c8fa4aa6421c8ba3e4956, type: 3}
-      propertyPath: dFactor
+      propertyPath: followY
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968303896447180367, guid: 6656d380132c8fa4aa6421c8ba3e4956, type: 3}
-      propertyPath: pFactor
-      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6656d380132c8fa4aa6421c8ba3e4956, type: 3}

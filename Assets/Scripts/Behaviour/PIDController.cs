@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PIDController : MonoBehaviour
 {
-	public float pFactor, iFactor, dFactor;
+	private float pFactor, iFactor, dFactor;
 
 	private float integral;
 	private float lastError;
@@ -17,7 +17,7 @@ public class PIDController : MonoBehaviour
 	}
 
 
-	public float updatePid(float setpoint, float actual, float timeFrame) {
+	public float updatePID(float setpoint, float actual, float timeFrame) {
 		float present = setpoint - actual;
 		integral += present * timeFrame;
 		float deriv = (present - lastError) / timeFrame;
@@ -25,7 +25,7 @@ public class PIDController : MonoBehaviour
 		return present * pFactor + integral * iFactor + deriv * dFactor;
 	}
 
-	public float updatePid(float setpoint, float actual, float timeFrame, float pFactor, float iFactor, float dFactor) {
+	public float updatePID(float setpoint, float actual, float timeFrame, float pFactor, float iFactor, float dFactor) {
 		float present = setpoint - actual;
 		integral += present * timeFrame;
 		float deriv = (present - lastError) / timeFrame;

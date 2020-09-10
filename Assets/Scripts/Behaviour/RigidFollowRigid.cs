@@ -9,16 +9,20 @@ public class RigidFollowRigid : MonoBehaviour {
     private Vector3 parentPositionOffset = Vector3.zero; // this is the offset of the parent, to keep correct positioning
 
     private Rigidbody thisRigidbody = null;
-    public int strenght = 15;
-    private PIDController pidControllerX = null;
-    private PIDController pidControllerY = null;
-    private PIDController pidControllerZ = null;
+
+    public float distance = 0.0f;
+
+    private Vector3PIDController pidController = null;
 
     public float pFactor = 60;
-    public float iFactor = 0.05f;
-    public float dFactor = 1f;
+    public float iFactor = 0.1f;
+    public float dFactor = 0.0f;
 
     private float biggestDistance = 0.0f;
+
+    public bool followX = true;
+    public bool followY = true;
+    public bool followZ = true;
 
     // Start is called before the first frame update
     void Start() {
@@ -26,32 +30,33 @@ public class RigidFollowRigid : MonoBehaviour {
 
         parentPositionOffset = new Vector3(parent.position.x - transform.position.x, parent.position.y - transform.position.y, parent.position.z - transform.position.z);
 
-        pidControllerX = new PIDController(pFactor, iFactor, dFactor);
-        pidControllerY = new PIDController(pFactor, iFactor, dFactor);
-        pidControllerZ = new PIDController(pFactor, iFactor, dFactor);
+        pidController = new Vector3PIDController(pFactor, iFactor, dFactor);
     }
 
     void FixedUpdate() {
         if (parent != null) {
-            //float currentDist = Vector3.Distance((parent.transform.position + parentPositionOffset), this.transform.position);
+            float currentDist = Vector3.Distance((parent.position - parentPositionOffset), this.transform.position);
 
-            //
-            float pidX = pidControllerX.updatePid((parent.position.x - parentPositionOffset.x), this.transform.position.x, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
-            float pidY = pidControllerY.updatePid((parent.position.y - parentPositionOffset.y), this.transform.position.y, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
-            float pidZ = pidControllerZ.updatePid((parent.position.z - parentPositionOffset.z), this.transform.position.z, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
-            Vector3 newVector = new Vector3(pidX, pidY, pidZ);
+            if (currentDist > distance) {
+                Vector3 newVector = pidController.updatePID((parent.position - parentPositionOffset), this.transform.position, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
 
-            Vector3 newVelocity = newVector;//.normalized * ((float)(strenght));
-            newVelocity.y = this.thisRigidbody.velocity.y;
+                Vector3 newVelocity = newVector;
 
-            thisRigidbody.velocity = newVelocity;
+                if (!followX) {
+                    newVelocity.x = this.thisRigidbody.velocity.x;
+                }
+                if (!followY) {
+                    newVelocity.y = this.thisRigidbody.velocity.y;
+                }
+                if (!followZ) {
+                    newVelocity.z = this.thisRigidbody.velocity.z;
+                }
+
+                thisRigidbody.velocity = newVelocity;
+            }
 
 
-            // debug
-           // if (((parent.transform.position - parentPositionOffset) - this.transform.position).magnitude > biggestDistance && ((parent.transform.position - parentPositionOffset) - this.transform.position).magnitude < 1.5f) {
-                biggestDistance = ((parent.position - parentPositionOffset) - this.transform.position).magnitude;
-                Debug.Log("Biggest distance: " + biggestDistance);
-           // }
+            Debug.Log("currentDist distance: " + currentDist);
         }
     }
 }
