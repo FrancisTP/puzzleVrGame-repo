@@ -317,8 +317,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: d6e788561e273a349899283e557b965c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 2
+  m_Radius: 0.3
+  m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &4052695502869616597
@@ -334,15 +334,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  maxVelocityChange: 100
+  maxVelocityChange: 0.8
+  maxVelocity: 3.5
   jumpForce: 800
+  checkForGroundOnJump: 1
   mainControllerNode: 4
   secondaryControllerNode: 5
-  checkForGroundOnJump: 1
-  capsuleCenter: {x: 0, y: 1, z: 0}
-  capsuleRadius: 0.3
-  capsuleHeight: 1.6
-  capsuleDirection: 1
+  head: {fileID: 2651432468878998340}
 --- !u!1 &2651432468394357125
 GameObject:
   m_ObjectHideFlags: 0

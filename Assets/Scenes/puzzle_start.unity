@@ -786,10 +786,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2651432468347255148, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: m_TrackingOriginMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2651432468347255149, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
       propertyPath: m_Name
       value: Player_2.0
@@ -836,46 +832,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651432468347255155, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651432468878998340, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651432468878998340, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651432468878998340, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052695502869616597, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: controllerNode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052695502869616597, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: mainControllerNode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052695502869616597, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: secondaryControllerNode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4052695502869616597, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: jumpForce
-      value: 800
-      objectReference: {fileID: 0}
-    - target: {fileID: 6903968300026667813, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: d6e788561e273a349899283e557b965c, type: 2}
-    - target: {fileID: 6903968300026667813, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8772329201445167898, guid: ef0a9c1e377fde34c96d0bb3a7b0560c, type: 3}
-      propertyPath: m_Drag
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

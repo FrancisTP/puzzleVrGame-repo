@@ -16,29 +16,24 @@ public class XRPlayerController : MonoBehaviour {
     [Header("Behaviour Options")]
 
     [SerializeField]
-    public float speed = 100f;
+    public float speed = 50f;
     [SerializeField]
-    public float maxVelocityChange = 250f;
+    public float maxVelocityChange = 0.8f;
+    [SerializeField]
+    public float maxVelocity = 3.5f;
     [SerializeField]
     public float jumpForce = 800f;
+    [SerializeField]
+    public bool checkForGroundOnJump = true; // set to false to fly
     [SerializeField]
     public XRNode mainControllerNode;
     [SerializeField]
     public XRNode secondaryControllerNode;
     [SerializeField]
-    public bool checkForGroundOnJump = true; // set to false to fly
+    public Transform head;
 
     [Header("Capsule Collider Options")]
 
-    [SerializeField]
-    public Vector3 capsuleCenter = new Vector3(0, 1, 0);
-    [SerializeField]
-    public float capsuleRadius = 0.3f;
-    [SerializeField]
-    public float capsuleHeight = 1.6f;
-
-    [SerializeField]
-    private CapsuleDirection capsuleDirection = CapsuleDirection.YAxis;
     private InputDevice mainController;
     private InputDevice secondaryController;
     private bool isGrounded;
@@ -48,7 +43,8 @@ public class XRPlayerController : MonoBehaviour {
     private CapsuleCollider capsuleCollider;
 
     // What to use for direction (head, hands, etc)
-    private GameObject directionDevice = null;
+    private GameObject directionDevice;
+    
 
     public static readonly float MIN_PLAYER_HEIGHT = 0.20f; // in meters
     public static readonly float MAX_PLAYER_HEIGHT = 2.0f; // in meters
@@ -64,9 +60,6 @@ public class XRPlayerController : MonoBehaviour {
         capsuleCollider = GetComponent<CapsuleCollider>();
 
         rigidBodyComponent.constraints = RigidbodyConstraints.FreezeRotation;
-        capsuleCollider.direction = (int)capsuleDirection;
-        capsuleCollider.center = capsuleCenter;
-        capsuleCollider.height = capsuleHeight;
     }
 
     // Start is called before the first frame update
@@ -75,13 +68,19 @@ public class XRPlayerController : MonoBehaviour {
     }
 
     private void GetDevices() {
-        List<InputDevice> devices = new List<InputDevice>();
-        InputDevices.GetDevicesAtXRNode(mainControllerNode, devices);
-        mainController = devices.FirstOrDefault();
+        List<InputDevice> devices;
+        if (mainController == null) {
+            devices = new List<InputDevice>();
+            InputDevices.GetDevicesAtXRNode(mainControllerNode, devices);
+            mainController = devices.FirstOrDefault();
+        }
 
-        devices = new List<InputDevice>();
-        InputDevices.GetDevicesAtXRNode(secondaryControllerNode, devices);
-        secondaryController = devices.FirstOrDefault();
+        if (secondaryController == null) {
+            devices = new List<InputDevice>();
+            InputDevices.GetDevicesAtXRNode(secondaryControllerNode, devices);
+            secondaryController = devices.FirstOrDefault();
+        }
+
     }
 
     // Handle button presses
@@ -91,21 +90,33 @@ public class XRPlayerController : MonoBehaviour {
         }
 
         // check if player is grounded before checking for any movement
-        Vector3 startingRaycastPoint = new Vector3(capsuleCollider.transform.position.x, capsuleCollider.transform.position.y + (capsuleCollider.height/2f), capsuleCollider.transform.position.z);
-        Vector3 endingRaycastPoint = new Vector3(capsuleCollider.transform.position.x, capsuleCollider.transform.position.y - 0.9f, capsuleCollider.transform.position.z);
+        Vector3 colliderWorldSpace = transform.TransformPoint(capsuleCollider.center);
+        Vector3 startingRaycastPoint = new Vector3(colliderWorldSpace.x, colliderWorldSpace.y, colliderWorldSpace.z);
+        Vector3 endingRaycastPoint = new Vector3(colliderWorldSpace.x, colliderWorldSpace.y - ((capsuleCollider.height / 2f) + isGroundedCheckLength), colliderWorldSpace.z);
 
-        isGrounded = Physics.Raycast(startingRaycastPoint, Vector3.down, 0.9f);
-        Debug.DrawLine(startingRaycastPoint, endingRaycastPoint, Color.red, 1f);
+        isGrounded = Physics.Raycast(startingRaycastPoint, Vector3.down, (capsuleCollider.height / 2f) + isGroundedCheckLength);
 
+        if (DEBUG) {
+            Debug.DrawLine(startingRaycastPoint, endingRaycastPoint, Color.red, 1f);
+            Debug.Log("isGrounded: " + isGrounded);
+        }
+
+        SetCapsuleColliderToHead();
         UpdateMovement();
         UpdateJump();
     }
 
     private void UpdateMovement() {
 
-        Debug.Log("isGrounded: " + isGrounded);
+        if (!isGrounded && checkForGroundOnJump) {
+            return;
+        }
+
         Vector2 primary2dValue;
-        if (mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue) && primary2dValue != Vector2.zero && isGrounded) {
+        mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue);
+
+        if (mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue) && primary2dValue != Vector2.zero) {
+            Debug.Log("qweqwewqe");
             float xAxis = Mathf.Clamp(primary2dValue.x * speed * Time.deltaTime, -maxVelocityChange, maxVelocityChange);
             float zAxis = Mathf.Clamp(primary2dValue.y * speed * Time.deltaTime, -maxVelocityChange, maxVelocityChange);
 
@@ -115,9 +126,16 @@ public class XRPlayerController : MonoBehaviour {
 
             Vector3 velocityForceVector = leftRight + forwardsBackwards;
             rigidBodyComponent.AddForce(velocityForceVector, ForceMode.VelocityChange);
-
-
+            ClampVelocity();
         }
+    }
+
+    private void ClampVelocity() {
+        float clampedXVelocity = Mathf.Clamp(rigidBodyComponent.velocity.x, -maxVelocity, maxVelocity);
+        float clampedZVelocity = Mathf.Clamp(rigidBodyComponent.velocity.z, -maxVelocity, maxVelocity);
+
+        Vector3 newVelocity = new Vector3(clampedXVelocity, rigidBodyComponent.velocity.y, clampedZVelocity);
+        rigidBodyComponent.velocity = newVelocity;
     }
 
     private void UpdateJump() {
@@ -136,5 +154,12 @@ public class XRPlayerController : MonoBehaviour {
         } else if (buttonPressed) {
             buttonPressed = false;
         }
+    }
+
+    private void SetCapsuleColliderToHead() {
+        Vector3 headLocalSpace = transform.InverseTransformPoint(head.position);
+
+        Vector3 capsuleColliderNewCenter = new Vector3(headLocalSpace.x, capsuleCollider.center.y, headLocalSpace.z);
+        //capsuleCollider.center = capsuleColliderNewCenter;
     }
 }
