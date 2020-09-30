@@ -32,8 +32,6 @@ public class XRPlayerController : MonoBehaviour {
     [SerializeField]
     public Transform head;
 
-    [Header("Capsule Collider Options")]
-
     private InputDevice mainController;
     private InputDevice secondaryController;
     private bool isGrounded;
@@ -44,7 +42,7 @@ public class XRPlayerController : MonoBehaviour {
 
     // What to use for direction (head, hands, etc)
     private GameObject directionDevice;
-    
+
 
     public static readonly float MIN_PLAYER_HEIGHT = 0.20f; // in meters
     public static readonly float MAX_PLAYER_HEIGHT = 2.0f; // in meters
@@ -69,17 +67,13 @@ public class XRPlayerController : MonoBehaviour {
 
     private void GetDevices() {
         List<InputDevice> devices;
-        if (mainController == null) {
-            devices = new List<InputDevice>();
-            InputDevices.GetDevicesAtXRNode(mainControllerNode, devices);
-            mainController = devices.FirstOrDefault();
-        }
+        devices = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(mainControllerNode, devices);
+        mainController = devices.FirstOrDefault();
 
-        if (secondaryController == null) {
-            devices = new List<InputDevice>();
-            InputDevices.GetDevicesAtXRNode(secondaryControllerNode, devices);
-            secondaryController = devices.FirstOrDefault();
-        }
+        devices = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(secondaryControllerNode, devices);
+        secondaryController = devices.FirstOrDefault();
 
     }
 
@@ -113,7 +107,7 @@ public class XRPlayerController : MonoBehaviour {
         }
 
         Vector2 primary2dValue;
-        mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue);
+        Debug.Log(mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue));
 
         if (mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue) && primary2dValue != Vector2.zero) {
             Debug.Log("qweqwewqe");
@@ -139,7 +133,7 @@ public class XRPlayerController : MonoBehaviour {
     }
 
     private void UpdateJump() {
-       
+
         if (!isGrounded && checkForGroundOnJump) {
             return;
         }
@@ -160,6 +154,6 @@ public class XRPlayerController : MonoBehaviour {
         Vector3 headLocalSpace = transform.InverseTransformPoint(head.position);
 
         Vector3 capsuleColliderNewCenter = new Vector3(headLocalSpace.x, capsuleCollider.center.y, headLocalSpace.z);
-        //capsuleCollider.center = capsuleColliderNewCenter;
+        capsuleCollider.center = capsuleColliderNewCenter;
     }
 }
