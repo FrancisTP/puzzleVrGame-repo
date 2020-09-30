@@ -10,15 +10,21 @@ using UnityEngine.XR.Interaction.Toolkit;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 public class XRPlayerController : MonoBehaviour {
+    private bool DEBUG = false;
+
 
     [Header("Behaviour Options")]
 
     [SerializeField]
-    public float speed = 7f;
+    public float speed = 100f;
+    [SerializeField]
+    public float maxVelocityChange = 250f;
     [SerializeField]
     public float jumpForce = 800f;
     [SerializeField]
-    public XRNode controllerNode;
+    public XRNode mainControllerNode;
+    [SerializeField]
+    public XRNode secondaryControllerNode;
     [SerializeField]
     public bool checkForGroundOnJump = true; // set to false to fly
 
@@ -33,22 +39,27 @@ public class XRPlayerController : MonoBehaviour {
 
     [SerializeField]
     private CapsuleDirection capsuleDirection = CapsuleDirection.YAxis;
-    private InputDevice controller;
+    private InputDevice mainController;
+    private InputDevice secondaryController;
     private bool isGrounded;
-    private bool buttonPressed;
+    private float isGroundedCheckLength = 0.1f;
+    private bool buttonPressed = false;
     private Rigidbody rigidBodyComponent;
     private CapsuleCollider capsuleCollider;
-    private List<InputDevice> devices = new List<InputDevice>();
 
-    public enum CapsuleDirection
-    {
+    // What to use for direction (head, hands, etc)
+    private GameObject directionDevice = null;
+
+    public static readonly float MIN_PLAYER_HEIGHT = 0.20f; // in meters
+    public static readonly float MAX_PLAYER_HEIGHT = 2.0f; // in meters
+
+    public enum CapsuleDirection {
         XAxis,
         YAxis,
         ZAxis
     }
 
-    void OnEnable()
-    {
+    void OnEnable() {
         rigidBodyComponent = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
 
@@ -60,51 +71,70 @@ public class XRPlayerController : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        GetDevice();
+        GetDevices();
     }
 
-    private void GetDevice()
-    {
-        InputDevices.GetDevicesAtXRNode(controllerNode, devices);
-        controller = devices.FirstOrDefault();
+    private void GetDevices() {
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(mainControllerNode, devices);
+        mainController = devices.FirstOrDefault();
+
+        devices = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(secondaryControllerNode, devices);
+        secondaryController = devices.FirstOrDefault();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (controller == null)
-        {
-            GetDevice();
+    // Handle button presses
+    void FixedUpdate() {
+        if (mainController == null || secondaryController == null) {
+            GetDevices();
         }
+
+        // check if player is grounded before checking for any movement
+        Vector3 startingRaycastPoint = new Vector3(capsuleCollider.transform.position.x, capsuleCollider.transform.position.y + (capsuleCollider.height/2f), capsuleCollider.transform.position.z);
+        Vector3 endingRaycastPoint = new Vector3(capsuleCollider.transform.position.x, capsuleCollider.transform.position.y - 0.9f, capsuleCollider.transform.position.z);
+
+        isGrounded = Physics.Raycast(startingRaycastPoint, Vector3.down, 0.9f);
+        Debug.DrawLine(startingRaycastPoint, endingRaycastPoint, Color.red, 1f);
 
         UpdateMovement();
         UpdateJump();
     }
 
-    private void UpdateMovement()
-    {
+    private void UpdateMovement() {
 
+        Debug.Log("isGrounded: " + isGrounded);
         Vector2 primary2dValue;
-        if (controller.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue) && primary2dValue != Vector2.zero)
-        {
-            float xAxis = primary2dValue.x * speed * Time.deltaTime;
-            float zAxis = primary2dValue.y * speed * Time.deltaTime;
+        if (mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue) && primary2dValue != Vector2.zero && isGrounded) {
+            float xAxis = Mathf.Clamp(primary2dValue.x * speed * Time.deltaTime, -maxVelocityChange, maxVelocityChange);
+            float zAxis = Mathf.Clamp(primary2dValue.y * speed * Time.deltaTime, -maxVelocityChange, maxVelocityChange);
+
 
             Vector3 leftRight = transform.TransformDirection(Vector3.right) * xAxis;
             Vector3 forwardsBackwards = transform.TransformDirection(Vector3.forward) * zAxis;
 
+            Vector3 velocityForceVector = leftRight + forwardsBackwards;
+            rigidBodyComponent.AddForce(velocityForceVector, ForceMode.VelocityChange);
+
 
         }
-
-        /*
-        if (device.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 position)) {
-            StartMove(position);
-        }
-        */
     }
 
-    private void UpdateJump()
-    {
+    private void UpdateJump() {
+       
+        if (!isGrounded && checkForGroundOnJump) {
+            return;
+        }
 
+        bool buttonValue;
+        if (secondaryController.TryGetFeatureValue(CommonUsages.primaryButton, out buttonValue) && buttonValue) {
+            if (!buttonPressed) {
+                buttonPressed = true;
+
+                rigidBodyComponent.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+        } else if (buttonPressed) {
+            buttonPressed = false;
+        }
     }
 }
