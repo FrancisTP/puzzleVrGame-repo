@@ -86,7 +86,7 @@ public class XRPlayerController : MonoBehaviour {
         // check if player is grounded before checking for any movement
         Vector3 colliderWorldSpace = transform.TransformPoint(capsuleCollider.center);
         Vector3 startingRaycastPoint = new Vector3(colliderWorldSpace.x, colliderWorldSpace.y, colliderWorldSpace.z);
-        Vector3 endingRaycastPoint = new Vector3(colliderWorldSpace.x, colliderWorldSpace.y - ((capsuleCollider.height / 2f) + isGroundedCheckLength), colliderWorldSpace.z);
+        Vector3 endingRaycastPoint = new Vector3(colliderWorldSpace.x, colliderWorldSpace.y - ((capsuleCollider.height / 2f) - isGroundedCheckLength), colliderWorldSpace.z);
 
         isGrounded = Physics.Raycast(startingRaycastPoint, Vector3.down, (capsuleCollider.height / 2f) + isGroundedCheckLength);
 
@@ -107,10 +107,7 @@ public class XRPlayerController : MonoBehaviour {
         }
 
         Vector2 primary2dValue;
-        Debug.Log(mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue));
-
         if (mainController.TryGetFeatureValue(CommonUsages.primary2DAxis, out primary2dValue) && primary2dValue != Vector2.zero) {
-            Debug.Log("qweqwewqe");
             float xAxis = Mathf.Clamp(primary2dValue.x * speed * Time.deltaTime, -maxVelocityChange, maxVelocityChange);
             float zAxis = Mathf.Clamp(primary2dValue.y * speed * Time.deltaTime, -maxVelocityChange, maxVelocityChange);
 

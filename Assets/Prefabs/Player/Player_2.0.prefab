@@ -317,7 +317,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: d6e788561e273a349899283e557b965c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
+  m_Radius: 0.2
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -662,7 +662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7553678717611281994
 Transform:
   m_ObjectHideFlags: 0
@@ -1106,7 +1106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6907176019903871169, guid: a8a5b35bcf9c1ac4bbe5528efec95889, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7530164466590617158, guid: a8a5b35bcf9c1ac4bbe5528efec95889, type: 3}
       propertyPath: parent
