@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RigidFollowRigid : MonoBehaviour {
+public class RigidPositionFollow : MonoBehaviour {
 
     public Transform parent; //  object we want to follow
 
@@ -42,15 +42,15 @@ public class RigidFollowRigid : MonoBehaviour {
             Vector3 newVector = new Vector3(pidX, pidY, pidZ);
 
             Vector3 newVelocity = newVector;//.normalized * ((float)(strenght));
-            newVelocity.y = this.thisRigidbody.velocity.y;
+            //newVelocity.y = this.thisRigidbody.velocity.y;
 
-            thisRigidbody.velocity = newVelocity;
+            thisRigidbody.AddForce(newVelocity, ForceMode.VelocityChange);
 
 
             // debug
            // if (((parent.transform.position - parentPositionOffset) - this.transform.position).magnitude > biggestDistance && ((parent.transform.position - parentPositionOffset) - this.transform.position).magnitude < 1.5f) {
-                biggestDistance = ((parent.position - parentPositionOffset) - this.transform.position).magnitude;
-                Debug.Log("Biggest distance: " + biggestDistance);
+                //biggestDistance = ((parent.position - parentPositionOffset) - this.transform.position).magnitude;
+                //Debug.Log("Biggest distance: " + biggestDistance);
            // }
         }
     }

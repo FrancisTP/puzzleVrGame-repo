@@ -15,7 +15,6 @@ public class PhysicsFollow : MonoBehaviour {
     public float maxOffset = 1.0f;
 
     public float speed = 25f;
-    private float tuningSpeed = 4f;
 
 
 
@@ -35,7 +34,10 @@ public class PhysicsFollow : MonoBehaviour {
         if (parent != null) {
             float currentDist = Vector3.Distance((parent.transform.position + worldPositionOffset), this.transform.position);
 
+            thisRigidbody.AddForce(((parent.transform.position + worldPositionOffset) - transform.position) * speed);
+            /*
             addTorqueToMatchParentRotation();
+            /*
             if (currentDist < 0.05f) {
                 // changing velocity still allows the forces and physics to be calculated correctly
                 thisRigidbody.velocity = ((parent.transform.position - worldPositionOffset) - this.transform.position).normalized * ((float)(0.25));
@@ -53,6 +55,7 @@ public class PhysicsFollow : MonoBehaviour {
                 // far away, move physics hand to where it needs to be ignoring forces (teleport)
                 this.transform.position = parent.transform.position - worldPositionOffset;
             }
+            */
         }
     }
 
