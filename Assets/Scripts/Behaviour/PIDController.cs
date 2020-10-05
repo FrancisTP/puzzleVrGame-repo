@@ -22,7 +22,7 @@ public class PIDController : MonoBehaviour
 		integral += present * timeFrame;
 		float deriv = (present - lastError) / timeFrame;
 		lastError = present;
-		return present * pFactor + integral * iFactor + deriv * dFactor;
+		return (present * pFactor) + (integral * iFactor) + (deriv * dFactor);
 	}
 
 	public float updatePid(float setpoint, float actual, float timeFrame, float pFactor, float iFactor, float dFactor) {

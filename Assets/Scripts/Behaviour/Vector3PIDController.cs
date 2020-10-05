@@ -15,12 +15,19 @@ public class Vector3PIDController : MonoBehaviour
         this.dFactor = dFactor;
     }
 
-    public Vector3 updatePid(Vector3 currentError, float timeFrame) {
-        integral += currentError * timeFrame;
-        var deriv = (currentError - lastError) / timeFrame;
-        lastError = currentError;
-        return currentError * pFactor
-            + integral * iFactor
-            + deriv * dFactor;
+    public Vector3 updatePid(Vector3 setpoint, Vector3 actual, float timeFrame) {
+        Vector3 present = setpoint - actual;
+        integral += present * timeFrame;
+        Vector3 deriv = (present - lastError) / timeFrame;
+        lastError = present;
+        return (present * pFactor) + (integral * iFactor) + (deriv * dFactor);
+    }
+
+    public Vector3 updatePid(Vector3 setpoint, Vector3 actual, float timeFrame, float pFactor, float iFactor, float dFactor) {
+        Vector3 present = setpoint - actual;
+        integral += present * timeFrame;
+        Vector3 deriv = (present - lastError) / timeFrame;
+        lastError = present;
+        return (present * pFactor) + (integral * iFactor) + (deriv * dFactor);
     }
 }

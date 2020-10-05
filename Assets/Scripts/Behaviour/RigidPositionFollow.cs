@@ -10,9 +10,7 @@ public class RigidPositionFollow : MonoBehaviour {
 
     private Rigidbody thisRigidbody = null;
     public int strenght = 15;
-    private PIDController pidControllerX = null;
-    private PIDController pidControllerY = null;
-    private PIDController pidControllerZ = null;
+    private Vector3PIDController vector3PIDController = null;
 
     public float pFactor = 60;
     public float iFactor = 0.05f;
@@ -26,9 +24,7 @@ public class RigidPositionFollow : MonoBehaviour {
 
         parentPositionOffset = new Vector3(parent.position.x - transform.position.x, parent.position.y - transform.position.y, parent.position.z - transform.position.z);
 
-        pidControllerX = new PIDController(pFactor, iFactor, dFactor);
-        pidControllerY = new PIDController(pFactor, iFactor, dFactor);
-        pidControllerZ = new PIDController(pFactor, iFactor, dFactor);
+        vector3PIDController = new Vector3PIDController(pFactor, iFactor, dFactor);
     }
 
     void FixedUpdate() {
@@ -36,13 +32,12 @@ public class RigidPositionFollow : MonoBehaviour {
             //float currentDist = Vector3.Distance((parent.transform.position + parentPositionOffset), this.transform.position);
 
             //
-            float pidX = pidControllerX.updatePid((parent.position.x - parentPositionOffset.x), this.transform.position.x, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
-            float pidY = pidControllerY.updatePid((parent.position.y - parentPositionOffset.y), this.transform.position.y, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
-            float pidZ = pidControllerZ.updatePid((parent.position.z - parentPositionOffset.z), this.transform.position.z, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
-            Vector3 newVector = new Vector3(pidX, pidY, pidZ);
+            float pidX = parent.position.x - parentPositionOffset.x;
+            float pidY = parent.position.y - parentPositionOffset.y;
+            float pidZ = parent.position.z - parentPositionOffset.z;
 
-            Vector3 newVelocity = newVector;//.normalized * ((float)(strenght));
-            //newVelocity.y = this.thisRigidbody.velocity.y;
+            Vector3 pidVector = new Vector3(pidX, pidY, pidZ);
+            Vector3 newVelocity = vector3PIDController.updatePid(pidVector, transform.position, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
 
             thisRigidbody.AddForce(newVelocity, ForceMode.VelocityChange);
 
