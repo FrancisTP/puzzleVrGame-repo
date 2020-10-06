@@ -39,7 +39,7 @@ public class RigidRotateFollowOld : MonoBehaviour {
 
         offset = child * Quaternion.Inverse(parent);
 
-        return Quaternion.identity;
+        return offset;
     }
 
     private void addTorqueToMatchParentRotation() {
