@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RigidRotateFollowOld : MonoBehaviour {
 
+    public float force = 10f;
+
     public Transform parent; // this is the object we want to follow
     private Quaternion worldRotationOffset = Quaternion.identity; // same as worldPositionOffset but for angles
 
@@ -12,6 +14,8 @@ public class RigidRotateFollowOld : MonoBehaviour {
     public float maxOffset = 1.0f;
 
     public float speed = 25f;
+
+    private Vector3 torque;
 
     private Vector3PIDController vector3PIDController = null;
     public float pFactor = 5f;
@@ -28,8 +32,40 @@ public class RigidRotateFollowOld : MonoBehaviour {
         vector3PIDController = new Vector3PIDController(pFactor, iFactor, dFactor);
     }
 
+
+    private void FixedUpdate() {
+        if ((null == parent) || !parent) return;
+
+        // Determine Quaternion 'difference'
+        // The conversion to euler demands we check each axis
+        Vector3 torqueF = OrientTorque(Quaternion.FromToRotation(transform.forward, parent.transform.forward).eulerAngles);
+        Vector3 torqueR = OrientTorque(Quaternion.FromToRotation(transform.right, parent.transform.right).eulerAngles);
+        Vector3 torqueU = OrientTorque(Quaternion.FromToRotation(transform.up, parent.transform.up).eulerAngles);
+        
+        float magF = torqueF.magnitude;
+        float magR = torqueR.magnitude;
+        float magU = torqueU.magnitude;
+
+        // Here we pick the axis with the least amount of rotation to use as our torque.
+        this.torque = magF < magR ? (magF < magU ? torqueF : torqueU) : (magR < magU ? torqueR : torqueU);
+
+        thisRigidbody.AddTorque(torque * Time.fixedDeltaTime * force);
+    }
+
+    private Vector3 OrientTorque(Vector3 torque) {
+        // Quaternion's Euler conversion results in (0-360)
+        // For torque, we need -180 to 180.
+
+        return new Vector3
+        (
+            torque.x > 180f ? 180f - torque.x : torque.x,
+            torque.y > 180f ? 180f - torque.y : torque.y,
+            torque.z > 180f ? 180f - torque.z : torque.z
+        );
+    }
+
     // Update is called once per frame
-    void FixedUpdate() {
+    void FixedUpdateOld() {
         addTorqueToMatchParentRotation();
     }
 

@@ -137,14 +137,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 265650430620434806}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &634160735398085851
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -177,8 +177,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &379496190311780180
 GameObject:
@@ -221,14 +221,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379496190311780180}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &1381860071185824304
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -261,8 +261,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &545159978907333424
 GameObject:
@@ -401,14 +401,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974644728972679309}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &5107301784454988402
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -441,8 +441,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &1212857563750087153
 GameObject:
@@ -580,14 +580,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852329841174691832}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &4166893535327794519
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -620,8 +620,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &2025726602053656748
 GameObject:
@@ -664,14 +664,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025726602053656748}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &4119189242973004974
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -704,8 +704,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &2261328255878077887
 GameObject:
@@ -748,14 +748,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2261328255878077887}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &2028452911203885810
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -788,8 +788,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &2290356310825992823
 GameObject:
@@ -1024,14 +1024,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2677032050720118152}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &5623387974902708209
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1064,8 +1064,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &2689174756648590480
 GameObject:
@@ -1108,14 +1108,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2689174756648590480}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &5996993735764424737
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1148,8 +1148,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &2762609042242364256
 GameObject:
@@ -1193,14 +1193,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2762609042242364256}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1136019156307186192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,6 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc33e0c3b9be3784f8663e15a46dcb53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 10
   parent: {fileID: 0}
   maxNewtonForces: 300
   maxOffset: 1
@@ -1278,14 +1279,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2825500190957173558}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!138 &1460850444701816452
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -1297,7 +1298,7 @@ FixedJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
+  m_EnablePreprocessing: 0
   m_MassScale: 500
   m_ConnectedMassScale: 1
 --- !u!1 &3218565524867821242
@@ -1341,14 +1342,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3218565524867821242}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &7714888611669618166
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1381,8 +1382,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &3249926385783290022
 GameObject:
@@ -1425,14 +1426,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3249926385783290022}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &2613794807262213351
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1465,8 +1466,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &3551618439493030364
 GameObject:
@@ -1638,14 +1639,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3639959809854274467}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &6933260891225054563
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1678,8 +1679,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &3799633293083946138
 GameObject:
@@ -1722,14 +1723,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3799633293083946138}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &7614120080999574369
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1762,8 +1763,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &5018663603053787401
 GameObject:
@@ -2001,14 +2002,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5609918424316964455}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &5085057360210249774
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2041,8 +2042,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &5818123622147637072
 GameObject:
@@ -2085,14 +2086,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5818123622147637072}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &952652842692237473
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2125,8 +2126,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &6143093290062266509
 GameObject:
@@ -2169,14 +2170,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6143093290062266509}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!59 &6083783100447527043
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2209,8 +2210,8 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 500
+  m_EnablePreprocessing: 0
+  m_MassScale: 1000
   m_ConnectedMassScale: 1
 --- !u!1 &6337089462388286783
 GameObject:
