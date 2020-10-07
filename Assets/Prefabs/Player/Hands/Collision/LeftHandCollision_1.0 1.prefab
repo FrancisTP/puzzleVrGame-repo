@@ -174,7 +174,7 @@ HingeJoint:
     max: 90
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -274,7 +274,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -373,7 +373,7 @@ HingeJoint:
     max: 55
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -473,7 +473,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -832,7 +832,7 @@ HingeJoint:
     max: 10
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1191,7 +1191,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1724,7 +1724,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1921,7 +1921,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -2118,7 +2118,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -2314,7 +2314,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -2955,7 +2955,7 @@ HingeJoint:
     max: 85
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -3037,7 +3037,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0016497374, y: 0.007355541, z: 0.19421704}
+  m_ConnectedAnchor: {x: 0.001646366, y: 0.007417932, z: 0.18208708}
   m_UseSpring: 1
   m_Spring:
     spring: 0.7
@@ -3054,7 +3054,7 @@ HingeJoint:
     max: 90
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -3154,7 +3154,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -3332,7 +3332,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.072520435, y: -0.0321721, z: 0.17474833}
+  m_ConnectedAnchor: {x: 0.07300687, y: -0.02695176, z: 0.18568689}
   m_UseSpring: 1
   m_Spring:
     spring: 0.7
@@ -3349,7 +3349,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -3382,9 +3382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6029447409489634922}
   - component: {fileID: 929354516883754206}
-  - component: {fileID: 322101387961577551}
-  - component: {fileID: 4735635452181682314}
-  - component: {fileID: 4006971629839011715}
   m_Layer: 8
   m_Name: LeftHandCollision_1.0 1
   m_TagString: Untagged
@@ -3442,71 +3439,6 @@ MonoBehaviour:
   - {fileID: 99901115027522828}
   - {fileID: 2571950808503390254}
   controllerNode: 4
---- !u!54 &322101387961577551
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8397278221429478530}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!59 &4735635452181682314
-HingeJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8397278221429478530}
-  m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 1, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0483, y: -0.0245, z: -0.0721}
-  m_UseSpring: 0
-  m_Spring:
-    spring: 0
-    damper: 0
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 0
-  m_Limits:
-    min: 0
-    max: 0
-    bounciness: 0
-    bounceMinVelocity: 0.2
-    contactDistance: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
---- !u!114 &4006971629839011715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8397278221429478530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a8ce7e88c768a4a83e95bdbb40e33a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  childJoints: []
-  stopJoint: 0
 --- !u!1 &9036818827423313086
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,7 +3517,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0

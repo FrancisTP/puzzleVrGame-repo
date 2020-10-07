@@ -207,7 +207,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -307,7 +307,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -538,7 +538,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -732,7 +732,7 @@ HingeJoint:
     max: 90
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -865,7 +865,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -966,7 +966,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1257,7 +1257,7 @@ HingeJoint:
     max: 10
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1358,7 +1358,7 @@ HingeJoint:
     max: 40
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1634,7 +1634,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1735,7 +1735,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1930,7 +1930,7 @@ HingeJoint:
     max: 80
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -2029,7 +2029,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -2224,7 +2224,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -2308,7 +2308,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.05717136, y: 0.034410737, z: 0.16350077}
+  m_ConnectedAnchor: {x: 0.059119947, y: 0.02460182, z: 0.1834246}
   m_UseSpring: 1
   m_Spring:
     spring: 0.7
@@ -2325,7 +2325,7 @@ HingeJoint:
     max: 75
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -2409,7 +2409,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0018450655, y: 0.007305622, z: 0.20358819}
+  m_ConnectedAnchor: {x: 0.0018883273, y: 0.007227376, z: 0.18129554}
   m_UseSpring: 1
   m_Spring:
     spring: 0.7
@@ -2426,7 +2426,7 @@ HingeJoint:
     max: 90
     bounciness: 0
     bounceMinVelocity: 0
-    contactDistance: 0
+    contactDistance: 4
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
