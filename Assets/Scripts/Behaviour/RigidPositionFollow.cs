@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class RigidPositionFollow : MonoBehaviour {
 
     public Transform parent; //  object we want to follow
 
-    private Vector3 parentPositionOffset = Vector3.zero; // this is the offset of the parent, to keep correct positioning
+    private Vector3 parentLocalOffset = Vector3.zero; // this is the offset of the parent, to keep correct positioning
 
     private Rigidbody thisRigidbody = null;
     public int strenght = 15;
@@ -21,9 +22,7 @@ public class RigidPositionFollow : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         thisRigidbody = this.GetComponent<Rigidbody>();
-
-        parentPositionOffset = new Vector3(parent.position.x - transform.position.x, parent.position.y - transform.position.y, parent.position.z - transform.position.z);
-
+        parentLocalOffset = parent.InverseTransformPoint(thisRigidbody.position);
         vector3PIDController = new Vector3PIDController(pFactor, iFactor, dFactor);
     }
 
@@ -31,13 +30,9 @@ public class RigidPositionFollow : MonoBehaviour {
         if (parent != null) {
             //float currentDist = Vector3.Distance((parent.transform.position + parentPositionOffset), this.transform.position);
 
-            //
-            float pidX = parent.position.x - parentPositionOffset.x;
-            float pidY = parent.position.y - parentPositionOffset.y;
-            float pidZ = parent.position.z - parentPositionOffset.z;
 
-            Vector3 pidVector = new Vector3(pidX, pidY, pidZ);
-            Vector3 newVelocity = vector3PIDController.updatePid(pidVector, transform.position, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
+            Vector3 pidVector = parent.TransformPoint(parentLocalOffset);
+            Vector3 newVelocity = vector3PIDController.updatePid(pidVector, thisRigidbody.position, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
 
             thisRigidbody.AddForce(newVelocity, ForceMode.VelocityChange);
 

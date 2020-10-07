@@ -7,26 +7,29 @@ public class SimpleRotateFollow : MonoBehaviour {
 
     public Transform parent;
     private Rigidbody thisRigidbody;
-    private Quaternion worldOffset = Quaternion.identity;
+    private Quaternion localOffset = Quaternion.identity;
 
     // Start is called before the first frame update
     void Start() {
         thisRigidbody = GetComponent<Rigidbody>();
 
+
+
         if (parent != null) {
-            worldOffset = getOffsetBetweenChildAndParent(thisRigidbody.rotation, parent.rotation);
+            localOffset = getOffsetBetweenChildAndParent(thisRigidbody.rotation, parent.rotation);
         }
     }
 
     // Update is called once per frame
     void FixedUpdate() {
-        thisRigidbody.rotation = parent.rotation;
+        thisRigidbody.rotation = parent.rotation * localOffset;
     }
 
     private Quaternion getOffsetBetweenChildAndParent(Quaternion child, Quaternion parent) {
+        //Quaternion LocalRotation = Quaternion.Inverse(Target.transform.rotation) * WorldRotation;
         Quaternion offset = Quaternion.identity;
 
-        offset = child * Quaternion.Inverse(parent);
+        offset = Quaternion.Inverse(parent) * child;
 
         return offset;
     }

@@ -792,7 +792,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: custom_hand_right_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5443576272425124426, guid: ce049f823d9870843b98d3a06a26151e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ce049f823d9870843b98d3a06a26151e, type: 3}
 --- !u!4 &3154107085722686695 stripped
 Transform:
@@ -862,7 +863,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: custom_hand_left_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1720612983038623431, guid: 3d789f0fcd6b09040ac308f4d46d3301, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3d789f0fcd6b09040ac308f4d46d3301, type: 3}
 --- !u!4 &368780543473096414 stripped
 Transform:
