@@ -94,7 +94,7 @@ public class AutomaticDoors : MonoBehaviour
         if (other.tag == triggerTag) {
             // someone is triggering a sensor
             sensorTriggered = true;
-            Debug.Log("SENSOR TRIGGERED");
+            //Debug.Log("SENSOR TRIGGERED");
         }
     }
 
@@ -103,7 +103,7 @@ public class AutomaticDoors : MonoBehaviour
         if (other.tag == triggerTag) {
             // person left sensor area
             sensorTriggered = false;
-            Debug.Log("SENSOR UN-TRIGGERED");
+            //Debug.Log("SENSOR UN-TRIGGERED");
         }
     }
 }

@@ -10,52 +10,52 @@ public class PhysicsFingersController : MonoBehaviour {
 
     // the joints list have the lowest part of the finger at location [0], middle part at [1], and tip of the finger at [2]
     [SerializeField]
-    List<HingeJoint> thumbJoints = null;
+    List<GameObject> thumbJoints = null;
 
     [SerializeField]
-    List<HingeJoint> indexJoints = null;
+    List<GameObject> indexJoints = null;
 
     [SerializeField]
-    List<HingeJoint> middleJoints = null;
+    List<GameObject> middleJoints = null;
 
     [SerializeField]
-    List<HingeJoint> ringJoints = null;
+    List<GameObject> ringJoints = null;
 
     [SerializeField]
-    List<HingeJoint> pinkyJoints = null;
+    List<GameObject> pinkyJoints = null;
 
     [SerializeField]
     public XRNode controllerNode;
     [SerializeField]
     private InputDevice controller;
 
-    private List<HingeJoint> allJoints = new List<HingeJoint>();
+    private List<GameObject> allJoints = new List<GameObject>(); // list that will have all joint objects for a hand, if we need to apply something to alll will be easier
 
     void Start() {
         GetDevices();
         ConfigurableJoint con;
-        foreach (HingeJoint hingeJoint in thumbJoints) {
-            allJoints.Add(hingeJoint);
+        foreach (GameObject fingerJointObject in thumbJoints) {
+            allJoints.Add(fingerJointObject);
         }
 
-        foreach (HingeJoint hingeJoint in indexJoints) {
-            allJoints.Add(hingeJoint);
+        foreach (GameObject fingerJointObject in indexJoints) {
+            allJoints.Add(fingerJointObject);
         }
 
-        foreach (HingeJoint hingeJoint in middleJoints) {
-            allJoints.Add(hingeJoint);
+        foreach (GameObject fingerJointObject in middleJoints) {
+            allJoints.Add(fingerJointObject);
         }
 
-        foreach (HingeJoint hingeJoint in ringJoints) {
-            allJoints.Add(hingeJoint);
+        foreach (GameObject fingerJointObject in ringJoints) {
+            allJoints.Add(fingerJointObject);
         }
 
-        foreach (HingeJoint hingeJoint in pinkyJoints) {
-            allJoints.Add(hingeJoint);
+        foreach (GameObject fingerJointObject in pinkyJoints) {
+            allJoints.Add(fingerJointObject);
         }
 
         
-        foreach (HingeJoint hingeJoint in allJoints) {
+        foreach (GameObject fingerJointObject in allJoints) {
             
         }
     }
@@ -97,60 +97,35 @@ public class PhysicsFingersController : MonoBehaviour {
     }
 
     private void updateThumb(float gripValue) {
-        foreach (HingeJoint hingeJoint in thumbJoints) {
-            float targetAngle = hingeJoint.limits.max;
-            float newTargetPosition = gripValue * targetAngle;
-
-            JointSpring hingeSpring = hingeJoint.spring;
-            hingeSpring.targetPosition = newTargetPosition;
-
-            hingeJoint.spring = hingeSpring;
+        foreach (GameObject thumbJointObject in thumbJoints) {
+            PhysicsFinger thumbJoint = thumbJointObject.GetComponentInChildren<PhysicsFinger>();
+            thumbJoint.updateHingeJoint(gripValue);
         }
     }
     private void updateIndex(float gripValue) {
-        foreach (HingeJoint hingeJoint in indexJoints) {
-            float targetAngle = hingeJoint.limits.max;
-            float newTargetPosition = gripValue * targetAngle;
-
-            JointSpring hingeSpring = hingeJoint.spring;
-            hingeSpring.targetPosition = newTargetPosition;
-
-            hingeJoint.spring = hingeSpring;
+        foreach (GameObject indexJointObject in indexJoints) {
+            PhysicsFinger indexJoint = indexJointObject.GetComponentInChildren<PhysicsFinger>();
+            indexJoint.updateHingeJoint(gripValue);
         }
     }
     private void updateMiddle(float gripValue) {
-        foreach (HingeJoint hingeJoint in middleJoints) {
-            float targetAngle = hingeJoint.limits.max;
-            float newTargetPosition = gripValue * targetAngle;
-
-            JointSpring hingeSpring = hingeJoint.spring;
-            hingeSpring.targetPosition = newTargetPosition;
-
-            hingeJoint.spring = hingeSpring;
+        foreach (GameObject middleJointObject in middleJoints) {
+            PhysicsFinger middleJoint = middleJointObject.GetComponentInChildren<PhysicsFinger>();
+            middleJoint.updateHingeJoint(gripValue);
         }
     }
 
     private void updateRing(float gripValue) {
-        foreach (HingeJoint hingeJoint in ringJoints) {
-            float targetAngle = hingeJoint.limits.max;
-            float newTargetPosition = gripValue * targetAngle;
-
-            JointSpring hingeSpring = hingeJoint.spring;
-            hingeSpring.targetPosition = newTargetPosition;
-
-            hingeJoint.spring = hingeSpring;
+        foreach (GameObject ringJointObject in ringJoints) {
+            PhysicsFinger ringJoint = ringJointObject.GetComponentInChildren<PhysicsFinger>();
+            ringJoint.updateHingeJoint(gripValue);
         }
     }
 
     private void updatePinky(float gripValue) {
-            foreach (HingeJoint hingeJoint in pinkyJoints) {
-                float targetAngle = hingeJoint.limits.max;
-                float newTargetPosition = gripValue * targetAngle;
-
-                JointSpring hingeSpring = hingeJoint.spring;
-                hingeSpring.targetPosition = newTargetPosition;
-
-                hingeJoint.spring = hingeSpring;
-            }
+        foreach (GameObject pinkyJointObject in pinkyJoints) {
+            PhysicsFinger pinkyJoint = pinkyJointObject.GetComponentInChildren<PhysicsFinger>();
+            pinkyJoint.updateHingeJoint(gripValue);
+        }
     }
 }
