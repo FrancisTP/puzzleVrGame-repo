@@ -5,7 +5,7 @@ using UnityEngine.XR;
 
 
 
-public class PhysicsFingerController : MonoBehaviour {
+public class PhysicsFingersController : MonoBehaviour {
 
 
     // the joints list have the lowest part of the finger at location [0], middle part at [1], and tip of the finger at [2]
@@ -29,9 +29,35 @@ public class PhysicsFingerController : MonoBehaviour {
     [SerializeField]
     private InputDevice controller;
 
+    private List<HingeJoint> allJoints = new List<HingeJoint>();
 
     void Start() {
         GetDevices();
+        ConfigurableJoint con;
+        foreach (HingeJoint hingeJoint in thumbJoints) {
+            allJoints.Add(hingeJoint);
+        }
+
+        foreach (HingeJoint hingeJoint in indexJoints) {
+            allJoints.Add(hingeJoint);
+        }
+
+        foreach (HingeJoint hingeJoint in middleJoints) {
+            allJoints.Add(hingeJoint);
+        }
+
+        foreach (HingeJoint hingeJoint in ringJoints) {
+            allJoints.Add(hingeJoint);
+        }
+
+        foreach (HingeJoint hingeJoint in pinkyJoints) {
+            allJoints.Add(hingeJoint);
+        }
+
+        
+        foreach (HingeJoint hingeJoint in allJoints) {
+            
+        }
     }
 
     private void GetDevices() {

@@ -32,6 +32,9 @@ public class XRPlayerController : MonoBehaviour {
     [SerializeField]
     public Transform head;
 
+    [SerializeField]
+    public List<Rigidbody> connectedRigidbodies;
+
     private InputDevice mainController;
     private InputDevice secondaryController;
     private bool isGrounded;
@@ -117,11 +120,16 @@ public class XRPlayerController : MonoBehaviour {
 
             Vector3 velocityForceVector = leftRight + forwardsBackwards;
             rigidBodyComponent.AddForce(velocityForceVector, ForceMode.VelocityChange);
-            ClampVelocity();
+            ClampVelocity(rigidBodyComponent);
+
+            //foreach (Rigidbody connectedRigidbody in connectedRigidbodies) {
+                //connectedRigidbody.AddForce(velocityForceVector, ForceMode.VelocityChange);
+               // ClampVelocity(connectedRigidbody);
+            //}
         }
     }
 
-    private void ClampVelocity() {
+    private void ClampVelocity(Rigidbody rigidBodyComponent) {
         float clampedXVelocity = Mathf.Clamp(rigidBodyComponent.velocity.x, -maxVelocity, maxVelocity);
         float clampedZVelocity = Mathf.Clamp(rigidBodyComponent.velocity.z, -maxVelocity, maxVelocity);
 
