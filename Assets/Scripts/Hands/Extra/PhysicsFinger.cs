@@ -86,8 +86,6 @@ public class PhysicsFinger : MonoBehaviour {
         gripStoppedValue = previousGripValue;
 
         targetStoppedValue = previousTargetValue;
-        Debug.Log("hingeJoint.angle: " + hingeJoint.angle);
-        Debug.Log("previousTargetValue: " + previousTargetValue);
     }
 
     private void resetFingerStoppedValues() {
