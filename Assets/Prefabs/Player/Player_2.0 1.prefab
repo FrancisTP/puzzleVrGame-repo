@@ -408,6 +408,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  directionDevice: {fileID: 4087696611328321220}
 --- !u!1 &4087696612238857425
 GameObject:
   m_ObjectHideFlags: 0

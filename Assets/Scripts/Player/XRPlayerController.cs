@@ -44,7 +44,8 @@ public class XRPlayerController : MonoBehaviour {
     private CapsuleCollider capsuleCollider;
 
     // What to use for direction (head, hands, etc)
-    private GameObject directionDevice;
+    [SerializeField]
+    public Transform directionDevice;
 
 
     public static readonly float MIN_PLAYER_HEIGHT = 0.20f; // in meters
@@ -78,6 +79,9 @@ public class XRPlayerController : MonoBehaviour {
         InputDevices.GetDevicesAtXRNode(secondaryControllerNode, devices);
         secondaryController = devices.FirstOrDefault();
 
+        if (directionDevice == null) {
+            directionDevice = head;
+        }
     }
 
     // Handle button presses
@@ -114,10 +118,13 @@ public class XRPlayerController : MonoBehaviour {
             float xAxis = Mathf.Clamp(primary2dValue.x * speed * Time.deltaTime, -maxVelocityChange, maxVelocityChange);
             float zAxis = Mathf.Clamp(primary2dValue.y * speed * Time.deltaTime, -maxVelocityChange, maxVelocityChange);
 
+            Vector3 leftRight = directionDevice.TransformDirection(Vector3.right) * xAxis;
+            Vector3 forwardsBackwards = directionDevice.TransformDirection(Vector3.forward) * zAxis;
+            //Vector3 leftRight = transform.TransformDirection(Vector3.right) * xAxis;
+            //Vector3 forwardsBackwards = transform.TransformDirection(Vector3.forward) * zAxis;
 
-            Vector3 leftRight = transform.TransformDirection(Vector3.right) * xAxis;
-            Vector3 forwardsBackwards = transform.TransformDirection(Vector3.forward) * zAxis;
-
+            leftRight = new Vector3(leftRight.x, 0, leftRight.z);
+            forwardsBackwards = new Vector3(forwardsBackwards.x, 0, forwardsBackwards.z);
             Vector3 velocityForceVector = leftRight + forwardsBackwards;
             rigidBodyComponent.AddForce(velocityForceVector, ForceMode.VelocityChange);
             ClampVelocity(rigidBodyComponent);
