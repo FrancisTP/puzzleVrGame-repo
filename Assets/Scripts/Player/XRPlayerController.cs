@@ -128,11 +128,6 @@ public class XRPlayerController : MonoBehaviour {
             Vector3 velocityForceVector = leftRight + forwardsBackwards;
             rigidBodyComponent.AddForce(velocityForceVector, ForceMode.VelocityChange);
             ClampVelocity(rigidBodyComponent);
-
-            //foreach (Rigidbody connectedRigidbody in connectedRigidbodies) {
-                //connectedRigidbody.AddForce(velocityForceVector, ForceMode.VelocityChange);
-               // ClampVelocity(connectedRigidbody);
-            //}
         }
     }
 

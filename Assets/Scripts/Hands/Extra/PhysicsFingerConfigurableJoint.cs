@@ -55,7 +55,6 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
 
         float targetAngle = configurableJoint.highAngularXLimit.limit;
         float newTargetPosition = gripValue * targetAngle;
-        Debug.Log("newTargetPosition: " + newTargetPosition);
 
         Quaternion rotationTarget = GetComponent<ConfigurableJoint>().targetRotation;
 
