@@ -14,12 +14,17 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
     private Collider collider;
 
     [HideInInspector]
-    public bool stopJoint = false;
+    private bool stopJoint = false;
     private bool gripping = false;
     private float gripStoppedValue = 0.0f;
     private float previousGripValue = 0.0f;
     private float previousTargetValue = 0.0f;
     private float targetStoppedValue = 0.0f;
+
+    [HideInInspector]
+    public bool stoppedChildJoint = false;
+
+    private float gripThreshold = 0.01f;
 
     void Start() {
         thisRigidbody = GetComponent<Rigidbody>();
@@ -28,6 +33,7 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        /*
         if (!stopJoint) {
             bool childStopped = false;
             foreach (PhysicsFingerConfigurableJoint physicsFinger in childJoints) {
@@ -42,11 +48,12 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
                 resetFingerStoppedValues();
             }
         }
+        */
     }
 
     public void updateHingeJoint(float gripValue) {
 
-        if (gripValue > previousGripValue || gripValue > gripStoppedValue) {
+        if ((gripValue > previousGripValue || gripValue > gripStoppedValue) && gripValue > gripThreshold) {
             gripping = true;
         } else {
             gripping = false;
@@ -56,17 +63,17 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
         float targetAngle = configurableJoint.highAngularXLimit.limit;
         float newTargetPosition = gripValue * targetAngle;
 
-        Quaternion rotationTarget = GetComponent<ConfigurableJoint>().targetRotation;
+        Quaternion rotationTargetQuaternion = GetComponent<ConfigurableJoint>().targetRotation;
 
-        if (stopJoint) {
-            rotationTarget = Quaternion.Euler(targetStoppedValue, 0, 0);
+        if (stopJoint || stoppedChildJoint) {
+            rotationTargetQuaternion = Quaternion.Euler(targetStoppedValue, 0, 0);
             previousTargetValue = targetStoppedValue;
         } else {
-            rotationTarget = Quaternion.Euler(newTargetPosition, 0, 0);
+            rotationTargetQuaternion = Quaternion.Euler(newTargetPosition, 0, 0);
             previousTargetValue = newTargetPosition;
         }
 
-        GetComponent<ConfigurableJoint>().targetRotation = rotationTarget;
+        GetComponent<ConfigurableJoint>().targetRotation = rotationTargetQuaternion;
 
         previousGripValue = gripValue;
     }
@@ -74,23 +81,59 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
     void OnCollisionEnter(Collision collision) {
         if (gripping) {
             setFingerStoppedValues();
+
+            // set children to stop as well
+            foreach (PhysicsFingerConfigurableJoint physicsFinger in childJoints) {
+                physicsFinger.setChildFingerStoppedValues();
+            }
         }
     }
 
     void OnCollisionExit(Collision collision) {
         resetFingerStoppedValues();
+
+        foreach (PhysicsFingerConfigurableJoint physicsFinger in childJoints) {
+            physicsFinger.resetChildFingerStoppedValues();
+        }
     }
 
     private void setFingerStoppedValues() {
-        stopJoint = true;
-        gripStoppedValue = previousGripValue;
+        if (!stopJoint) {
+            stopJoint = true;
+            gripStoppedValue = previousGripValue;
 
-        targetStoppedValue = previousTargetValue;
+            targetStoppedValue = previousTargetValue;
+        }
     }
 
     private void resetFingerStoppedValues() {
-        stopJoint = false;
-        gripStoppedValue = 0.0f;
-        targetStoppedValue = 0.0f;
+        if (stopJoint) { 
+            stopJoint = false;
+
+            if (!stoppedChildJoint) {
+                gripStoppedValue = 0.0f;
+                targetStoppedValue = 0.0f;
+            }
+        }
+    }
+
+    public void setChildFingerStoppedValues() {
+        if (!stoppedChildJoint && !stopJoint) {
+            stoppedChildJoint = true;
+            gripStoppedValue = previousGripValue;
+
+            targetStoppedValue = previousTargetValue;
+        }
+    }
+
+    public void resetChildFingerStoppedValues() {
+        if (stoppedChildJoint) {
+            stoppedChildJoint = false;
+
+            if (!stopJoint) {
+                gripStoppedValue = 0.0f;
+                targetStoppedValue = 0.0f;
+            }
+        }
     }
 }

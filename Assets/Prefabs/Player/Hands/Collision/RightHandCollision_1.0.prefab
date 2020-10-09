@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 102254877019327488}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Thumb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 8670612229433880940}
   - component: {fileID: 8473558799799295190}
   - component: {fileID: 8575900062903558501}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Middle_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,8 +264,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childJoints:
-  - {fileID: 1361503213988481164}
-  stopJoint: 0
+  - {fileID: 5546767677945701055}
+  stoppedChildJoint: 0
 --- !u!1 &379496190311780180
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 3474539801916311810}
   - component: {fileID: 8305375824836471398}
   - component: {fileID: 7378533446578058139}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Index_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,8 +424,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -447,8 +447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childJoints:
-  - {fileID: 5026774086313817873}
-  stopJoint: 0
+  - {fileID: 8050069099495334668}
+  stoppedChildJoint: 0
 --- !u!1 &522380917731116572
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6125617266721624668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 7707253693068721477}
   - component: {fileID: 7505478954514077137}
   - component: {fileID: 1361503213988481164}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Middle_03_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -715,8 +715,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -737,8 +737,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints: []
-  stopJoint: 0
+  childJoints:
+  - {fileID: 8575900062903558501}
+  - {fileID: 5546767677945701055}
+  stoppedChildJoint: 0
 --- !u!1 &1212857563750087153
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +848,7 @@ GameObject:
   - component: {fileID: 3082477269998144783}
   - component: {fileID: 1613253272769707256}
   - component: {fileID: 2094105805803381243}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pinky_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,8 +971,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -992,8 +994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childJoints:
-  - {fileID: 1919259424325960608}
-  stopJoint: 0
+  - {fileID: 7420528251023258432}
+  stoppedChildJoint: 0
 --- !u!1 &1876056904237115497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +1005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7491379894003950940}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1041,7 @@ GameObject:
   - component: {fileID: 5455235100702141330}
   - component: {fileID: 6594026128283240454}
   - component: {fileID: 7420528251023258432}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pinky_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,8 +1164,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -1184,10 +1186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints:
-  - {fileID: 2094105805803381243}
-  - {fileID: 1919259424325960608}
-  stopJoint: 0
+  childJoints: []
+  stoppedChildJoint: 0
 --- !u!1 &2261328255878077887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 5549829966338593961}
   - component: {fileID: 3323211330795757924}
   - component: {fileID: 1919259424325960608}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pinky_03_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,8 +1323,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -1345,8 +1345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints: []
-  stopJoint: 0
+  childJoints:
+  - {fileID: 2094105805803381243}
+  - {fileID: 7420528251023258432}
+  stoppedChildJoint: 0
 --- !u!1 &2290356310825992823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1553,7 @@ GameObject:
   - component: {fileID: 4224813180937661214}
   - component: {fileID: 4939788500995709075}
   - component: {fileID: 9057739318834775024}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Thumb_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,8 +1676,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -1696,10 +1698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints:
-  - {fileID: 2166036234625122714}
-  - {fileID: 5641212949599057072}
-  stopJoint: 0
+  childJoints: []
+  stoppedChildJoint: 0
 --- !u!1 &2689174756648590480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,7 +1712,7 @@ GameObject:
   - component: {fileID: 505553454979826448}
   - component: {fileID: 3237728306750495135}
   - component: {fileID: 2166036234625122714}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Thumb_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1835,8 +1835,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -1858,8 +1858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childJoints:
-  - {fileID: 5641212949599057072}
-  stopJoint: 0
+  - {fileID: 9057739318834775024}
+  stoppedChildJoint: 0
 --- !u!1 &2762609042242364256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,7 +1872,8 @@ GameObject:
   - component: {fileID: 2492841847001635311}
   - component: {fileID: 1136019156307186192}
   - component: {fileID: 7899571239822464791}
-  m_Layer: 0
+  - component: {fileID: 3115622358971656578}
+  m_Layer: 10
   m_Name: Palm_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1908,7 +1909,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &1136019156307186192
 MonoBehaviour:
@@ -1940,6 +1941,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
+--- !u!135 &3115622358971656578
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762609042242364256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.23
+  m_Center: {x: 0, y: -0.18, z: 0.2}
 --- !u!1 &2825500190957173558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,7 +1965,7 @@ GameObject:
   - component: {fileID: 8756366720372273154}
   - component: {fileID: 3620029056915469223}
   - component: {fileID: 685627503739210869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wrist_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2093,7 +2107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974884426236748793}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Index
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,7 +2143,7 @@ GameObject:
   - component: {fileID: 2988332112219515487}
   - component: {fileID: 2603368002755832733}
   - component: {fileID: 8050069099495334668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Index_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2252,8 +2266,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -2274,10 +2288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints:
-  - {fileID: 7378533446578058139}
-  - {fileID: 5026774086313817873}
-  stopJoint: 0
+  childJoints: []
+  stoppedChildJoint: 0
 --- !u!1 &3249926385783290022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2302,7 @@ GameObject:
   - component: {fileID: 7343479147745807312}
   - component: {fileID: 4168256909105952502}
   - component: {fileID: 5026774086313817873}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Index_03_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2413,8 +2425,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -2435,8 +2447,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints: []
-  stopJoint: 0
+  childJoints:
+  - {fileID: 7378533446578058139}
+  - {fileID: 8050069099495334668}
+  stoppedChildJoint: 0
 --- !u!1 &3582913969459892242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,7 +2559,7 @@ GameObject:
   - component: {fileID: 674834715706181624}
   - component: {fileID: 759099404682748192}
   - component: {fileID: 5641212949599057072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Thumb_03_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2668,8 +2682,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -2690,8 +2704,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints: []
-  stopJoint: 0
+  childJoints:
+  - {fileID: 2166036234625122714}
+  - {fileID: 9057739318834775024}
+  stoppedChildJoint: 0
 --- !u!1 &3799633293083946138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,7 +2720,7 @@ GameObject:
   - component: {fileID: 19967248516982263}
   - component: {fileID: 1424930183230124563}
   - component: {fileID: 6856067091515861136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ring_03_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2827,8 +2843,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -2849,8 +2865,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints: []
-  stopJoint: 0
+  childJoints:
+  - {fileID: 1663354152728728524}
+  - {fileID: 5513053567750310718}
+  stoppedChildJoint: 0
 --- !u!1 &5432753608514010931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,7 +2977,7 @@ GameObject:
   - component: {fileID: 9045067842075302197}
   - component: {fileID: 7497552904287490649}
   - component: {fileID: 5546767677945701055}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Middle_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3082,8 +3100,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -3104,10 +3122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints:
-  - {fileID: 8575900062903558501}
-  - {fileID: 1361503213988481164}
-  stopJoint: 0
+  childJoints: []
+  stoppedChildJoint: 0
 --- !u!1 &5818123622147637072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,7 +3136,7 @@ GameObject:
   - component: {fileID: 5467505706581163347}
   - component: {fileID: 6652202113711367011}
   - component: {fileID: 5513053567750310718}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ring_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3243,8 +3259,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -3265,10 +3281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43000a8539cc54fb2f3ebdf8d973aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childJoints:
-  - {fileID: 1663354152728728524}
-  - {fileID: 6856067091515861136}
-  stopJoint: 0
+  childJoints: []
+  stoppedChildJoint: 0
 --- !u!1 &6143093290062266509
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,7 +3295,7 @@ GameObject:
   - component: {fileID: 4763763041279540810}
   - component: {fileID: 8598131892580328832}
   - component: {fileID: 1663354152728728524}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ring_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3404,8 +3418,8 @@ ConfigurableJoint:
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 1
-  m_ProjectionDistance: 0.01
-  m_ProjectionAngle: 5
+  m_ProjectionDistance: 0.02
+  m_ProjectionAngle: 6
   m_ConfiguredInWorldSpace: 0
   m_SwapBodies: 0
   m_BreakForce: Infinity
@@ -3427,8 +3441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childJoints:
-  - {fileID: 6856067091515861136}
-  stopJoint: 0
+  - {fileID: 5513053567750310718}
+  stoppedChildJoint: 0
 --- !u!1 &6337089462388286783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,7 +3548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4414329310279293801}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3856,7 +3870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4848654442622413925}
   - component: {fileID: 4151761264402653518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightHandCollision_1.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3922,7 +3936,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7054601849650815151}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pinky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
