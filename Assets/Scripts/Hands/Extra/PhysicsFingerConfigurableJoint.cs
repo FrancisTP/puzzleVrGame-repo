@@ -78,8 +78,9 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
         previousGripValue = gripValue;
     }
 
+    /*
     void OnCollisionEnter(Collision collision) {
-        if (gripping) {
+        if (gripping && !stopJoint && !stoppedChildJoint) {
             setFingerStoppedValues();
 
             // set children to stop as well
@@ -96,7 +97,7 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
             physicsFinger.resetChildFingerStoppedValues();
         }
     }
-
+    */
     private void setFingerStoppedValues() {
         if (!stopJoint) {
             stopJoint = true;
@@ -135,5 +136,28 @@ public class PhysicsFingerConfigurableJoint : MonoBehaviour {
                 targetStoppedValue = 0.0f;
             }
         }
+    }
+
+    void OnTriggerEnter(Collider collider) {
+        if (gripping && !stopJoint && !stoppedChildJoint) {
+            setFingerStoppedValues();
+
+            /*
+            // set children to stop as well
+            foreach (PhysicsFingerConfigurableJoint physicsFinger in childJoints) {
+                physicsFinger.setChildFingerStoppedValues();
+            }
+            */
+        }
+    }
+
+    void OnTriggerExite(Collider collider) {
+        resetFingerStoppedValues();
+
+        /*
+        foreach (PhysicsFingerConfigurableJoint physicsFinger in childJoints) {
+            physicsFinger.resetChildFingerStoppedValues();
+        }
+        */
     }
 }
