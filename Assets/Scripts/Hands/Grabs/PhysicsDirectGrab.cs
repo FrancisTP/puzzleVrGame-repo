@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PhysicsDirectGrab : MonoBehaviour {
@@ -20,9 +21,21 @@ public class PhysicsDirectGrab : MonoBehaviour {
 
     private bool handHovering = false;
 
+    private InputDevice handController;
+    private InputDevice dummyInputDevice = new InputDevice();
+
     void Start() {
-        thisRigidbody = this.GetComponent<Rigidbody>();
+        thisRigidbody = this.GetComponent<Rigidbody>(); 
         vector3PIDController = new Vector3PIDController(pFactor, iFactor, dFactor);
+    }
+
+    private void Update() {
+        if (handHovering) { // A hand is within intaraction reach of this object
+            float grip;
+            if (handController.TryGetFeatureValue(CommonUsages.grip, out grip) && grip != 0.0f) {
+                // hand is close enough to interact with the object and the user is trying to grab it
+            }
+        }
     }
 
     private void OnSelect() {
@@ -48,6 +61,12 @@ public class PhysicsDirectGrab : MonoBehaviour {
         if (other.tag == "Hand") {
             handHovering = true;
             hand = other.transform;
+            
+            RigidPositionFollow rigidPositionFollow = other.gameObject.GetComponent<RigidPositionFollow>();
+            Transform trackedControllerTransform = rigidPositionFollow.parent;
+            UnityEngine.XR.Interaction.Toolkit.XRController xrController = trackedControllerTransform.gameObject.GetComponent<UnityEngine.XR.Interaction.Toolkit.XRController>();
+            //XRNode controllerNode = xrController.controllerNode;
+            handController = xrController.inputDevice;
         }
     }
 
@@ -55,6 +74,7 @@ public class PhysicsDirectGrab : MonoBehaviour {
         if (other.tag == "Hand") {
             handHovering = false;
             hand = null;
+            handController = dummyInputDevice;
         }
     }
 
