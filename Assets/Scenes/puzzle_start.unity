@@ -5824,7 +5824,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3586
+  m_Name: pb_Mesh-3616
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17155,17 +17155,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 481256, guid: 956bd2acf7aae244dac8fc20cf57858d, type: 3}
   m_PrefabInstance: {fileID: 1794041517}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1798681988 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2009915405701631498, guid: 55d5077687471f648afd023476b6cd8f, type: 3}
-  m_PrefabInstance: {fileID: 1104561663}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &1813095325
 Mesh:
   m_ObjectHideFlags: 0
@@ -45418,85 +45407,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 535f8016c54027848ab50a34a1165ebc, type: 3}
---- !u!1 &4196950958471802210 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3294199213218830826, guid: 535f8016c54027848ab50a34a1165ebc, type: 3}
-  m_PrefabInstance: {fileID: 4196950958471802209}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4196950958471802211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4196950958471802210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d797d9e8cf801dd4fa12fc021d7142a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1798681988}
-  m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_OnFirstHoverEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CustomReticle: {fileID: 0}
-  m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 0.15
-  m_MovementType: 1
-  m_TrackPosition: 1
-  m_SmoothPosition: 0
-  m_SmoothPositionAmount: 5
-  m_TightenPosition: 0.5
-  m_TrackRotation: 1
-  m_SmoothRotation: 0
-  m_SmoothRotationAmount: 5
-  m_TightenRotation: 0.5
-  m_ThrowOnDetach: 1
-  m_ThrowSmoothingDuration: 0.25
-  m_ThrowSmoothingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
-  m_ThrowAngularVelocityScale: 0.25
-  m_GravityOnDetach: 0
-  m_RetainTransformParent: 1
 --- !u!1001 &7221489864120440642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45556,178 +45466,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PyramidToy
       objectReference: {fileID: 0}
-    - target: {fileID: 3459178415828394165, guid: ebf77e665687e154a910fe321d0fae16, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 7816674499460863135, guid: ebf77e665687e154a910fe321d0fae16, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 714854627}
-    - target: {fileID: 8626362906032344756, guid: ebf77e665687e154a910fe321d0fae16, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebf77e665687e154a910fe321d0fae16, type: 3}
---- !u!1 &7221489864120440643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3459178415828394165, guid: ebf77e665687e154a910fe321d0fae16, type: 3}
-  m_PrefabInstance: {fileID: 7221489864120440642}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7221489864120440644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7221489864120440643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d797d9e8cf801dd4fa12fc021d7142a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1798681988}
-  m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_OnFirstHoverEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CustomReticle: {fileID: 0}
-  m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 0.15
-  m_MovementType: 1
-  m_TrackPosition: 1
-  m_SmoothPosition: 0
-  m_SmoothPositionAmount: 5
-  m_TightenPosition: 0.5
-  m_TrackRotation: 1
-  m_SmoothRotation: 0
-  m_SmoothRotationAmount: 5
-  m_TightenRotation: 0.5
-  m_ThrowOnDetach: 1
-  m_ThrowSmoothingDuration: 0.25
-  m_ThrowSmoothingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
-  m_ThrowAngularVelocityScale: 0.25
-  m_GravityOnDetach: 0
-  m_RetainTransformParent: 1
---- !u!1 &8382990443418542995 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5922558741241257695, guid: 5c3c95f7a8c0a6b40a312a7a0406d933, type: 3}
-  m_PrefabInstance: {fileID: 2767315389731126604}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8382990443418542996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382990443418542995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d797d9e8cf801dd4fa12fc021d7142a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 1798681988}
-  m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_OnFirstHoverEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CustomReticle: {fileID: 0}
-  m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 0.15
-  m_MovementType: 1
-  m_TrackPosition: 1
-  m_SmoothPosition: 0
-  m_SmoothPositionAmount: 5
-  m_TightenPosition: 0.5
-  m_TrackRotation: 1
-  m_SmoothRotation: 0
-  m_SmoothRotationAmount: 5
-  m_TightenRotation: 0.5
-  m_ThrowOnDetach: 1
-  m_ThrowSmoothingDuration: 0.25
-  m_ThrowSmoothingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
-  m_ThrowAngularVelocityScale: 0.25
-  m_GravityOnDetach: 0
-  m_RetainTransformParent: 1
 --- !u!1001 &8677224824149254675
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7428200697807577589}
   - component: {fileID: 4196950958471802211}
+  - component: {fileID: 8259442045421065658}
   m_Layer: 11
   m_Name: BigMetalCubeToy 1
   m_TagString: Untagged
@@ -48,6 +49,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8259442045421065658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294199213218830826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b812e203e32463a49be85dbb709d6ff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapGrab: 0
 --- !u!1 &5065194881642442410
 GameObject:
   m_ObjectHideFlags: 0

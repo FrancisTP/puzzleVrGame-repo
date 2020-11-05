@@ -28,20 +28,10 @@ public class RigidPositionFollow : MonoBehaviour {
 
     void FixedUpdate() {
         if (parent != null) {
-            //float currentDist = Vector3.Distance((parent.transform.position + parentPositionOffset), this.transform.position);
-
-
             Vector3 pidVector = parent.TransformPoint(parentLocalOffset);
             Vector3 newVelocity = vector3PIDController.updatePid(pidVector, thisRigidbody.position, Time.fixedDeltaTime, pFactor, iFactor, dFactor);
 
             thisRigidbody.AddForce(newVelocity, ForceMode.VelocityChange);
-
-
-            // debug
-           // if (((parent.transform.position - parentPositionOffset) - this.transform.position).magnitude > biggestDistance && ((parent.transform.position - parentPositionOffset) - this.transform.position).magnitude < 1.5f) {
-                //biggestDistance = ((parent.position - parentPositionOffset) - this.transform.position).magnitude;
-                //Debug.Log("Biggest distance: " + biggestDistance);
-           // }
         }
     }
 }
