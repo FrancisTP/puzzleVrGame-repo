@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.XR;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -60,7 +57,6 @@ public class PhysicsDirectGrab : MonoBehaviour {
             // hand (palm to match position and rotation)
             // handController (inputDevice)
             directGrabFollow.UpdateFollow();
-            Debug.Log("1231321");
         }
     }
 
